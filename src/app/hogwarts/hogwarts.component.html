@@ -1,0 +1,56 @@
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Orelega+One&display=swap" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title-banner">Hogwarts</h1>
+  </div>
+
+  <div class="hogwarts">
+    <div class="container">
+      <div class="row">
+      
+          <div class="col-sm-12 col-md-6 col-lg-4">
+          <h2>Teachers</h2>
+          <div class="cards-container">
+            <div *ngFor="let teacher of teachers" class="card mb-3" style="width: 18rem;" >
+              <span class="badge assignment" [ngStyle]="{'background-color': getHouseColor(teacher.house)}">{{ teacher.assignment }}</span>
+              <div class="card-body">
+                <h3 class="name">{{teacher.firstName}} {{teacher.lastName}}</h3>
+                <p class="description">{{teacher.description}}</p>
+                <div class="arrival-date-container d-flex align-items-center">
+                  <i class="bi bi-calendar-date-fill"></i>
+                  <p class="arrival-date ml-2">{{teacher.arrivalDate}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-sm-12 col-md-6 col-lg-8">
+          <h2>Students</h2>
+          <div class="cards-container">
+            <div *ngFor="let student of students" class="card sm-6 mb-3">
+              <span class="badge house" [ngStyle]="{'background-color': getHouseColor(student.house)}">{{ student.house }}</span>
+              <div class="card-body">
+                <h3 class="name">{{student.firstName}} {{student.lastName}}</h3>
+                <p class="description">{{student.description}}</p>
+                <div class="arrival-date-container d-flex align-items-center">
+                  <i class="bi bi-calendar-date-fill"></i>
+                  <p class="arrival-date ml-2">{{calculateStudyYear(student.arrivalDate)}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
